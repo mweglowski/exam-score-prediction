@@ -58,7 +58,22 @@ Below are presented python packages used for that project:
 ## Configuration
 Project has been made using `Python` 3.12.10 and `Node` v22.15.0. Ensure that you also have `npm` installed.
 
-Ensure to install `requirements.txt` by running the following command.
+Create Python virtual environment:
+```bash
+python -m venv venv
+```
+
+Then activate it using this command:
+```bash
+source venv/bin/activate
+```
+
+Or if you are on windows paste that:
+```bash
+./venv/Scripts/activate
+```
+
+Ensure to install `requirements.txt` by running the following command:
 ```bash
 pip install -r requirements.txt
 ```
