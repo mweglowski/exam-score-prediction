@@ -5,8 +5,8 @@ import numpy as np
 import lightgbm
 import optuna
 
-from tools import load_data, get_features_and_labels
-from preprocessing import get_preprocessor
+from src.tools import load_data, get_features_and_labels
+from src.preprocessing import get_preprocessor
 
 
 def perform_grid_search_on_random_forest(estimator, X, y):
@@ -39,13 +39,13 @@ def lgb_objective(trial):
         'bagging_fraction': trial.suggest_float('bagging_fraction', 0.4, 1.0), # for each iteration use only x% trainig data rows
         'bagging_freq': trial.suggest_int('bagging_freq', 1, 7), # per how many trees data should be reshuffled
         'min_data_in_leaf':  trial.suggest_int('min_data_in_leaf', 5, 100), # min num of samples required for leaf creation in a single tree
-        'device_type': 'cuda',
+        'device_type': 'gpu',
     }
 
     preprocessor = get_preprocessor()
     estimator = Pipeline([
-        ('preprocessor', preprocessor)
-        ('classifier', lightgbm.LGBMClassifier(**params)),
+        ('preprocessor', preprocessor),
+        ('classifier', lightgbm.LGBMRegressor(**params)),
     ])
 
     df_train, _ = load_data()

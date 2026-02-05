@@ -10,8 +10,8 @@ import joblib
 import time
 import os
 
-from tools import load_data, get_features_and_labels
-from preprocessing import get_preprocessor
+from src.tools import load_data, get_features_and_labels
+from src.preprocessing import get_preprocessor
 
 
 def get_cv_results(estimator, estimator_name, X, y, exp_num):
@@ -128,7 +128,7 @@ def main():
         ]),
     }
     
-    EXP_NUM = 18
+    EXP_NUM = 19
     df_train, _ = load_data()
     X, y = get_features_and_labels(df=df_train,
                                    target_col='exam_score')
