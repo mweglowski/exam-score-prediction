@@ -78,6 +78,11 @@ Ensure to install `requirements.txt` by running the following command:
 pip install -r requirements.txt
 ```
 
+Go to `frontend/` and then run the command below to get `node_modules` which contains tools need for web app to run:
+```
+npm install
+```
+
 Download `.csv` data from [kaggle](https://www.kaggle.com/competitions/playground-series-s6e1/data). Ensure that it is placed inside `/data` folder.
 
 
